@@ -61,6 +61,10 @@ elseif selectionParams.isScaled && selectionParams.cond % Sa(Tcond) scaling
     scaleFac = exp(selectionParams.lnSa1)./exp(IMs.sampleBig(:,selectionParams.indTcond));
     % get indices of ground motions with allowable scale factors, for further consideration
     idxAllow = find(scaleFac < selectionParams.maxScale);
+    
+    assert(numel(idxAllow) >= selectionParams.nGM, ...
+        'Selection constraints leave too few candidate records (available: %d, required: %d).', ...
+        numel(idxAllow), selectionParams.nGM);
 end
 
 hw = waitbar(0,'Optimizing ground motion selection');
@@ -111,4 +115,5 @@ IMs.sampleSmall = sampleSmall;
 
 
 end
+
 
