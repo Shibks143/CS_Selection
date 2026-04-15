@@ -4,8 +4,6 @@ function [  ] = write_output(recIdx, IMs, outputDir, outputFile, metadata)
 % files for each database. 
 
 % Create directory for outputs, if it doesn't yet exist
-
-% Create directory for outputs, if it doesn't yet exist
 outDirFull = fullfile(pwd, outputDir);
 
 if ~exist(outDirFull, 'dir')
@@ -19,8 +17,6 @@ filePath = fullfile(outDirFull, outputFile);
 if fin == -1
     error('Cannot open file:\n%s\nReason: %s', filePath, msg);
 end
-
-% fin = fopen([outputDir '/' outputFile],'w');
 
 % print header information
 fprintf(fin, '%s \n \n', metadata.getTimeSeries{1}, metadata.getTimeSeries{2}, metadata.getTimeSeries{3});

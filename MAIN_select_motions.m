@@ -202,7 +202,7 @@ copyFiles   = 1;        % =1 to copy selected motions to a local directory,
                         % otherwise =0 to suppress plots
 seedValue   = 0;        % =0 for random seed in when simulating 
                         % response spectra for initial matching, 
-                        % otherwise the specifed seedValue is used.
+                        % otherwise the specified seedValue is used.
 nTrials     = 20;       % number of iterations of the initial spectral 
                         % simulation step to perform
 outputDir  = 'Output';    % Location for output files
@@ -224,7 +224,7 @@ end
 % Compute target mean and covariance at all periods in the database
 targetSa = get_target_spectrum(knownPer, selectionParams, indPer, rup);
                                                                            
-% Define the spectral accleration at Tcond that all ground motions will be scaled to
+% Define the spectral acceleration at Tcond that all ground motions will be scaled to
 selectionParams.lnSa1 = targetSa.meanReq(selectionParams.indTcond); 
 
 %% Simulate response spectra matching the computed targets
@@ -261,7 +261,7 @@ else
     % check errors versus tolerances to see whether optimization is needed
     if within_tolerance(IMs.sampleSmall, targetSa, selectionParams)
         fprintf('Greedy optimization was skipped based on user input tolerance. \n \n');
-        display(['Error metric of ' num2str(devTotal,2) ' is within tolerance, skipping optimization']);
+        disp(['Error metric of ' num2str(devTotal,2) ' is within tolerance, skipping optimization']);
     else % run optimization
         IMs = optimize_ground_motions(selectionParams, targetSa, IMs);
         % IMs = optimize_ground_motions_par(selectionParams, targetSa, IMs); % a version of the optimization function that uses parallel processing
@@ -278,7 +278,7 @@ if showPlots
 end
  
 %% Output results to a text file 
-recIdx = metadata.allowedIndex(IMs.recID); % selected motions, as indixed in the original database
+recIdx = metadata.allowedIndex(IMs.recID); % selected motions, as indexed in the original database
 
 write_output(recIdx, IMs, outputDir, outputFile, metadata)
 
