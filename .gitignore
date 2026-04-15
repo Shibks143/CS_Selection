@@ -1,1 +1,10 @@
+# Ignore output files
+Output/
 Output_File.dat
+
+# MATLAB temp
+*.asv
+*.m~
+*.mat
+
+

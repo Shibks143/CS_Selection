@@ -118,9 +118,9 @@
 
 %% User inputs begin here
 % Ground motion database and type of selection 
-selectionParams.databaseFile    = 'CyberShake_meta_data'; 
+% selectionParams.databaseFile    = 'CyberShake_meta_data'; 
 % selectionParams.databaseFile    = 'NGA_W2_meta_data'; 
-% selectionParams.databaseFile    = 'BBP_GP_meta_data'; 
+selectionParams.databaseFile    = 'BBP_GP_meta_data'; 
 selectionParams.cond            = 1;
 selectionParams.arb             = 2; 
 selectionParams.RotD            = 50; 
@@ -205,7 +205,7 @@ seedValue   = 0;        % =0 for random seed in when simulating
                         % otherwise the specifed seedValue is used.
 nTrials     = 20;       % number of iterations of the initial spectral 
                         % simulation step to perform
-outputDir  = 'Data';    % Location for output files
+outputDir  = 'Output';    % Location for output files
 outputFile  = 'Output_File.dat'; % File name of the summary output file
 
 % User inputs end here
